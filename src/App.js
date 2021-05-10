@@ -27,13 +27,22 @@ class App extends React.Component {
     currentStep: 0,
   };
 
+  nextStep = () => {
+    console.log('nextStep is being called!')
+    this.setState(prevState => ({
+      routine: prevState.routine,
+      currentStep: prevState.currentStep + 1,
+    }))
+    console.log(this.state);
+  }
+
 
   render() {
   return (
     <div className="App">
 
       <header className="App-header">
-        <Clock time={this.state.routine[this.state.currentStep]} />
+        <Clock exercise={this.state.routine[this.state.currentStep]} completed={this.nextStep}  />
 
       </header>
     </div>
