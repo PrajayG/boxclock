@@ -1,28 +1,33 @@
 import React from "react";
 import Timer from 'easytimer';
 
-import "./Clock.css";
+import "./Clock.scss";
 
 let timer = new Timer();
+
+
+
 timer.addEventListener('secondsUpdated', function (e) {
-  let element = document.querySelector('#basicUsage');
-  element.innerHTML = timer.getTimeValues().toString();
+    let element = document.querySelector('#basicUsage');
+    element.innerHTML = timer.getTimeValues().toString();
 });
 
-
-
-timer.start({
-  countdown: true,
-  startValues: { seconds: 180 }
-});
 
 export default class Clock extends React.Component {
+  // lifecycle method
+  componentDidMount() {
+    timer.start({
+      countdown: true,
+      startValues: { seconds: this.props.time.duration }
+    });
 
   // https://reactjs.org/docs/handling-events.html
   // This is 'experimental' syntax that I'm using here, normally you put this
   // in a constructor class and binding this
   pauseTimer = (e) => {
-    timer.pause();
+    this.timer.pause();
+  }
+
   }
 
   render() {
