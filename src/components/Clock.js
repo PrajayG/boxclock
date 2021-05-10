@@ -30,7 +30,7 @@ export default class Clock extends React.Component {
       <div className="clock">
         <h1>🥊 Box Clock🥊 </h1>
         <h1 id="basicUsage">00:00:00</h1>
-        <h1>{this.props.time}</h1>
+        <h1>{this.props.time.stage}</h1>
         <div className="clock__button-panel">
           <button id="start">Start</button>
           <button onClick={this.pauseTimer} id="pause">Pause</button>
